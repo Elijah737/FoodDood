@@ -1,15 +1,15 @@
+CREATE TABLE cart (
+	cart_item_id SERIAL PRIMARY KEY,
+	user_id INT REFERENCES users(user_id),
+	menu_item_id INT REFERENCES menu(menu_item_id)
+);
+
 CREATE TABLE users (
 	user_id SERIAL PRIMARY KEY,
 	email VARCHAR(200),
 	password VARCHAR(255),
 	name VARCHAR(200),
 	address VARCHAR(255)
-);
-
-CREATE TABLE cart (
-	cart_item_id SERIAL PRIMARY KEY,
-	user_id INT REFERENCES users(user_id),
-	menu_item_id INT REFERENCES menu(menu_item_id)
 );
 
 CREATE TABLE menu (
@@ -25,7 +25,14 @@ CREATE TABLE business (
 	business_id SERIAL PRIMARY KEY,
 	business_name VARCHAR(200),
 	business_email VARCHAR(200),
+	business_password VARCHAR(255),
 	cuisine VARCHAR(200),
 	specialities VARCHAR(255),
 	specials VARCHAR(500)
 );
+
+-- DROP
+-- users
+-- business
+-- menu
+-- cart

@@ -5,9 +5,9 @@ VALUES
 
 
 INSERT INTO  business
-(business_name, business_email, cuisine, specialities, specials)
+(business_name, business_email, business_password, cuisine, specialities, specials)
 VALUES
-('Tammy''s Tacos', 'tacotammy@gmail.com', 'Mexican', 'tacos enchiladas empinadas', '$1.99 Tacos')
+('Tammy''s Tacos', 'tacotammy@gmail.com', 'TaCoTaMmY' , 'Mexican', 'tacos enchiladas empinadas', '$1.99 Tacos')
 
 
 INSERT INTO menu
