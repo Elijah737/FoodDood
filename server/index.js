@@ -6,6 +6,7 @@ session = require("express-session");
 const{ SESSION_SECRET, CONNECTION_STRING, SERVER_PORT } = process.env;
 const authCtrl = require("./controllers/authController");
 const busCtrl = require("./controllers/businessController");
+const menuCtrl = require("./controllers/menuController");
 const app = express();
 
 
@@ -42,7 +43,11 @@ massive ({
     app.post("/business/login", busCtrl.login);
     app.post("/business/logout", busCtrl.logout);
     app.get("/business/business", busCtrl.getBusiness);
-    // app.put("/business/business/:id", busCtrl.editBusiness)
+    app.put("/business/business/:business_id", busCtrl.editBusiness)
 
+    app.get("/api/menu/get/:id", menuCtrl.getMenu);
+    app.post("/api/menu/add", menuCtrl.addToMenu);
+    app.put("/api/menu/edit/:id", menuCtrl.editMenuItem);
+    app.delete("/api/menu/delete/:id", menuCtrl.deleteMenuItem);
 
     app.listen(SERVER_PORT, () => console.log(`-----PORT ${SERVER_PORT} ONLINE-----`));

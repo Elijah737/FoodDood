@@ -47,4 +47,17 @@ module.exports = {
             res.sendStatus(404)
         }
     },
+    editBusiness: async (req, res) => {
+        const { cuisine, specialities, specials } = req.body;
+        const { business_id } = req.params;
+        const db = req.app.get("db");
+
+        const business = await db.business.edit_business({
+            cuisine,
+            specialities,
+            specials,
+            business_id: business_id
+        });
+        res.status(200).send(business);
+    },
 };
