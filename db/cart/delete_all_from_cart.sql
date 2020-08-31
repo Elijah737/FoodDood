@@ -1,2 +1,2 @@
-DELETE FROm cart
+DELETE FROM cart
 WHERE user_id =$1;

@@ -7,6 +7,7 @@ const{ SESSION_SECRET, CONNECTION_STRING, SERVER_PORT } = process.env;
 const authCtrl = require("./controllers/authController");
 const busCtrl = require("./controllers/businessController");
 const menuCtrl = require("./controllers/menuController");
+const cartCtrl = require("./controllers/cartController");
 const app = express();
 
 
@@ -49,5 +50,11 @@ massive ({
     app.post("/api/menu/add", menuCtrl.addToMenu);
     app.put("/api/menu/edit/:id", menuCtrl.editMenuItem);
     app.delete("/api/menu/delete/:id", menuCtrl.deleteMenuItem);
+
+    app.get("/api/get/cart/:id", cartCtrl.getCart);
+    app.post("/api/cart/add", cartCtrl.addToCart);
+    // app.put("/api/cart/edit/:id", cartCtrl.editCartItem);
+    //delete all from cart
+    app.delete("/api/cart/delete/:id", cartCtrl.deleteFromCart);
 
     app.listen(SERVER_PORT, () => console.log(`-----PORT ${SERVER_PORT} ONLINE-----`));
