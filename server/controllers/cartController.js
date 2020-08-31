@@ -1,8 +1,8 @@
 module.exports = {
 
     getCart: (req, res) => {
-        const {id} = req.params;
-        req.app.get('db').cart.get_cart(id)
+        const {user_id} = req.params;
+        req.app.get('db').cart.get_cart(user_id)
         .then(cartItems => res.status(200).send(cartItems))
         .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
     },
