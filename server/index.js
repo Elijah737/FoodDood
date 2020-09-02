@@ -46,7 +46,7 @@ massive ({
     app.get("/business/business", busCtrl.getBusiness);
     app.put("/business/business/:business_id", busCtrl.editBusiness)
 
-    app.get("/api/menu/get/:id", menuCtrl.getMenu);
+    app.get("/api/menu/get/:business_id", menuCtrl.getMenu);
     app.post("/api/menu/add", menuCtrl.addToMenu);
     app.put("/api/menu/edit/:id", menuCtrl.editMenuItem);
     app.delete("/api/menu/delete/:id", menuCtrl.deleteMenuItem);

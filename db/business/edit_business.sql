@@ -1,5 +1,6 @@
 UPDATE business
 SET
+business_name = ${business_name},
 cuisine = ${cuisine},
 specialities = ${specialities},
 specials = ${specials}

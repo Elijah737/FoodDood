@@ -48,11 +48,12 @@ module.exports = {
         }
     },
     editBusiness: async (req, res) => {
-        const { cuisine, specialities, specials } = req.body;
+        const { business_name, cuisine, specialities, specials } = req.body;
         const { business_id } = req.params;
         const db = req.app.get("db");
 
         const business = await db.business.edit_business({
+            business_name,
             cuisine,
             specialities,
             specials,

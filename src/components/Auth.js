@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
-import { getUser, getBusiness } from '../redux/reducer';
+import { getUser, getBusiness, getMenu } from '../redux/reducer';
 
 const Auth = (props) => {
   const [userBusinessToggle, setUserToggle] = useState(true);
-  const [signInRegisterToggle, setRegisterToggle] = useState(false);
+  const [signInRegisterToggle, setRegisterToggle] = useState(true);
   const [emailInput, setEmail] = useState("");
   const [passwordInput, setPassword] = useState("");
   const [businessEmailInput, setBusinessEmail] = useState("");
@@ -55,6 +55,7 @@ const Auth = (props) => {
       })
       .then((res) => {
         props.getBusiness();
+        // props.getMenu();
         props.history.push("/restaurant");
       })
       .catch((err) => {
@@ -94,7 +95,12 @@ const Auth = (props) => {
 
     return (
       <div>
-        <h1>{signInRegisterToggle ? "Login" : "Register"}</h1>
+
+        <div className="title">
+        <h1 className="fooddood">FOODDOOD</h1>
+        </div>
+
+        <h3>{signInRegisterToggle ? "Login" : "Register"}</h3>
         <div>
         <input
           name="email"
@@ -135,7 +141,7 @@ const Auth = (props) => {
         </div>
 
 
-        <h1>{signInRegisterToggle ? "Business Login" : "Business Register"}</h1>
+        <h3>{signInRegisterToggle ? "Business Login" : "Business Register"}</h3>
         <div> 
         <input
           name="email"
@@ -180,5 +186,5 @@ const Auth = (props) => {
     );
   };
   
-  export default connect(null, {getUser, getBusiness})(Auth);
+  export default connect(null, {getUser, getBusiness, getMenu})(Auth);
   

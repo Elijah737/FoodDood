@@ -11,7 +11,7 @@ function App() {
     <div className="App">
       <Provider store ={store}>
         <HashRouter>
-          <Header />
+          {/* <Header /> */}
            {routes}
         </HashRouter>
       </Provider>

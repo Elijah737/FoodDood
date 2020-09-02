@@ -1,8 +1,9 @@
 module.exports = {
     getMenu: async (req, res) => {
-        const {business_id} = req.body;
+        const {business_id} = req.params;
+        console.log(req.params)
         const db = req.app.get("db");
-        const menu = await db.menu.get_menu(business_id);
+        const menu = await db.menu.get_menu(+business_id);
         // console.log(business_id);
         res.status(200).send(menu);        
 
