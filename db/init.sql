@@ -16,8 +16,8 @@ CREATE TABLE menu (
 	menu_item_id SERIAL PRIMARY KEY,
 	item_name VARCHAR(200),
 	item_price INT,
-	item_description VARCHAR(500),
 	item_image VARCHAR(300),
+	item_description VARCHAR(500),
 	business_id INT REFERENCES business(business_id)
 );
 

@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { getBusiness, getMenu } from '../redux/reducer';
-import Menu from "./Menu"
+import '../App.css';
+import Menu from "./Menu";
 import axios from 'axios';
 
 const Restaurant = (props) => {
@@ -12,7 +13,11 @@ const [cuisineInput, setCuisine] = useState("");
 const [specialitiesInput, setSpecialities] = useState("");
 const [specialsInput, setSpecials] = useState("");
 
-const business_id = props.business.business_id;
+const [itemNameInput, setItemName] = useState("");
+const [itemPriceInput, setItemPrice] = useState("");
+const [itemDescInput, setItemDesc] = useState("");
+const [itemImageInput, setItemImage] = useState("");
+
 
 const handleNameInput = (event) => {
   const {value} = event.target;
@@ -34,11 +39,30 @@ const handleSpecialsInput = (event) => {
   setSpecials(value)
 };
 
-console.log( "props", props)
-console.log("businessId", props.business.business_id)
+
+
+const handleTitleInput = (event) => {
+  const {value} = event.target;
+  setItemName(value)
+  }
+
+const handlePriceInput = (event) => {
+  const {value} = event.target;
+  setItemPrice(value)
+  }
+
+const handleImageInput = (event) => {
+  const {value} = event.target;
+  setItemImage(value)
+  }
+
+const handleDescriptionInput = (event) => {
+  const {value} = event.target;
+  setItemDesc(value)
+  }
+
 
 useEffect(() => {
-  console.log(business_id)
   axios
     .get(`/api/menu/get/${props.business.business_id}`)
     .then((res) => {
@@ -51,32 +75,6 @@ useEffect(() => {
 }, [])
 
 
-// useEffect(() => {
-//   getMenu();
-// }, []);
-
-// const getMenu = async () => {
-//   const response = await fetch(
-//     `/api/menu/get/${busId}`
-//   );
-//   const data = await response.json();
-//   setMenu(data);
-// };
-
-
-// function getBusMenu(busId){
-//   axios
-//     .get(`/api/menu/get/${busId}`)
-//     .then((res) => {
-//       console.log( "res", res);
-//     })
-//     .catch((err) => {
-//       alert("error in fetching Menu");
-//     });
-// };
-
-// console.log("Menu", menu)
-
 const editBusiness = () => {
   axios
     .put(`/business/business/${props.business.business_id}`, {
@@ -85,45 +83,68 @@ const editBusiness = () => {
       specialities: specialitiesInput,
       specials: specialsInput
     })
-    .then((res) => {
-      props.getBusiness();
-      props.history.push("/restaurant");
+    .then(data => {
+        this.setState({data: data}); 
+      // props.getBusiness();
+      // props.history.push("/restaurant");
     })
     .catch((err) => {
       alert("error in updating information");
     });
 };
 
-  // getBusMenu(busId);
-  // console.log("getBusMenu", props.getMenu())
 
-    console.log("props.menu", props.menu)
-    console.log("busId", business_id)
+const addToMenu = () => {
+  axios
+    .post(`/api/menu/add/${props.business.business_id}`,{
+  item_name: itemNameInput, 
+  item_price: itemPriceInput, 
+  item_description: itemDescInput, 
+  item_image: itemImageInput,
+  business_id: props.business.business_id
+  })
+  .then((res) => {
+    setMenu(res.data); 
+  })
+  .catch((err) => {
+    alert("error in adding to menu");
+  });
+}
+
+
+  console.log("setMenu", setMenu)
+  console.log("Restaurant Props", props)
+
 
     return (
       <>
-      <h1>{props.business.business_name}</h1>
-      <h3>{props.business.cuisine}</h3>
-      <h3>{props.business.specialities}</h3>
-      <h3>{props.business.specials}</h3>
-      <input
+    
+        <h1>{props.business.business_name}</h1>
+        <input
           name="businessName"
           placeholder="enter business name"
           value={nameInput}
           onChange={handleNameInput}
-        />
+          />
+        
+
+        <h3>{props.business.cuisine}</h3>
         <input
           name="cuisine"
           placeholder="enter cuisine type"
           value={cuisineInput}
           onChange={handleCuisineInput}
-        />
+          />
+
+        <h3>{props.business.specialities}</h3>
         <input
           name="specialities"
           placeholder="specialities"
           value={specialitiesInput}
           onChange={handleSpecialitiesInput}
-        />
+          />
+
+        <h3>{props.business.specials}</h3>
         <input
           name="specials"
           placeholder="specials"
@@ -131,17 +152,51 @@ const editBusiness = () => {
           onChange={handleSpecialsInput}
         />
 
-        <button onClick={editBusiness}>Edit Business</button>
+        <button onClick={editBusiness}>Submit Edit</button>
+
+      <h1>Add To Menu</h1>
+
+        <input
+            name="title"
+            placeholder="enter item name"
+            value={itemNameInput}
+            onChange={handleTitleInput}
+            />
+
+        <input
+            name="price"
+            placeholder="enter item price"
+            value={itemPriceInput}
+            onChange={handlePriceInput}
+            />
+
+        <input
+            name="image"
+            placeholder="enter image URL"
+            value={itemImageInput}
+            onChange={handleImageInput}
+            />
+
+        <input
+            name="description"
+            placeholder="enter item description"
+            value={itemDescInput}
+            onChange={handleDescriptionInput}
+            />
+
+      <button onClick={addToMenu}>Add to Menu</button>
 
       <h3>Mapped Menu Items</h3>
 
       <div className="menuMap">
-        {menu.map(menu => (
-          <Menu
-            key={menu.menu_item_id}
-            title={menu.item_name}
+        {menu.map((menuItem, index) => {
+          return(
+          <Menu 
+            menuItem={menuItem}
+            index={index}
           />
-        ))}
+          );
+          })}
       </div>
 
 

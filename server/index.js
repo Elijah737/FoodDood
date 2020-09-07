@@ -47,14 +47,14 @@ massive ({
     app.put("/business/business/:business_id", busCtrl.editBusiness)
 
     app.get("/api/menu/get/:business_id", menuCtrl.getMenu);
-    app.post("/api/menu/add", menuCtrl.addToMenu);
-    app.put("/api/menu/edit/:id", menuCtrl.editMenuItem);
-    app.delete("/api/menu/delete/:id", menuCtrl.deleteMenuItem);
+    app.post("/api/menu/add/:business_id", menuCtrl.addToMenu);
+    app.put("/api/menu/edit/:menu_item_id", menuCtrl.editMenuItem);
+    app.delete("/api/menu/delete/:business_id", menuCtrl.deleteMenuItem);  //menu_item id instead of business_id
 
-    app.get("/api/get/cart/:id", cartCtrl.getCart);
+    app.get("/api/get/cart/:user_id", cartCtrl.getCart);
     app.post("/api/cart/add", cartCtrl.addToCart);
     // app.put("/api/cart/edit/:id", cartCtrl.editCartItem);
     //delete all from cart
-    app.delete("/api/cart/delete/:id", cartCtrl.deleteFromCart);
+    app.delete("/api/cart/delete/:user_id", cartCtrl.deleteFromCart);
 
     app.listen(SERVER_PORT, () => console.log(`-----PORT ${SERVER_PORT} ONLINE-----`));
