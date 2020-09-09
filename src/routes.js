@@ -4,6 +4,7 @@ import Auth from './components/Auth';
 import Business from './components/Business';
 import Restaurant from './components/Restaurant';
 import Checkout from './components/Checkout';
+import BusinessInfo from './components/BusinessInfo'
 
 export default (
     <Switch>
@@ -11,5 +12,6 @@ export default (
         <Route path='/business' component={Business} />
         <Route path='/restaurant' component={Restaurant} />
         <Route path='/checkout' component={Checkout} />
+        <Route path='/businessinfo' component={BusinessInfo} />
     </Switch>
 );

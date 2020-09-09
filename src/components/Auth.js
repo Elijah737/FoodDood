@@ -54,9 +54,8 @@ const Auth = (props) => {
         business_password: businessPasswordInput,
       })
       .then((res) => {
-        console.log("businessLogin res", res)
+        // console.log("businessLogin res", res)
         props.getBusiness(res.data.business_id);
-        // props.getMenu();
         props.history.push("/restaurant");
       })
       .catch((err) => {

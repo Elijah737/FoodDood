@@ -111,10 +111,10 @@ const addToMenu = () => {
   });
 }
 
-
   console.log("setMenu", setMenu)
   console.log("Restaurant Props", props)
-
+  console.log("initial state menu", mapStateToProps.menu)
+  // console.log( "props getMenu pass in business ID", props.getMenu(props.business.business_id))
 
     return (
       <>
@@ -191,7 +191,8 @@ const addToMenu = () => {
       <div className="menuMap">
         {menu.map((menuItem, index) => {
           return(
-          <Menu 
+          <Menu
+            // deleteMenuItem = {deleteMenuItem}
             menuItem={menuItem}
             index={index}
           />

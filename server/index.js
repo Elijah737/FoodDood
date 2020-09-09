@@ -44,12 +44,14 @@ massive ({
     app.post("/business/login", busCtrl.login);
     app.post("/business/logout", busCtrl.logout);
     app.get("/business/business", busCtrl.getBusiness);
+    // app.get("/business/info/:business_id", busCtrl.getBusinessInfo)
+    app.get("/business/all", busCtrl.getAllBusiness)
     app.put("/business/business/:business_id", busCtrl.editBusiness)
 
     app.get("/api/menu/get/:business_id", menuCtrl.getMenu);
     app.post("/api/menu/add/:business_id", menuCtrl.addToMenu);
     app.put("/api/menu/edit/:menu_item_id", menuCtrl.editMenuItem);
-    app.delete("/api/menu/delete/:business_id", menuCtrl.deleteMenuItem);  //menu_item id instead of business_id
+    app.delete("/api/menu/delete/:menu_item_id", menuCtrl.deleteMenuItem);
 
     app.get("/api/get/cart/:user_id", cartCtrl.getCart);
     app.post("/api/cart/add", cartCtrl.addToCart);

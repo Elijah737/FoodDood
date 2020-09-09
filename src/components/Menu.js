@@ -56,9 +56,25 @@ const [itemDescription, setDescription] = useState("");
           };
 
 
+          const deleteMenuItem = () => {
+            axios
+            .delete(`/api/menu/delete/${props.menuItem.menu_item_id}`,{
+              menu_item_id: props.menuItem.menu_item_id,
+              business_id: props.business.business_id
+            })
+            .then((res) => {
+              props.setMenu(res.data); 
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+            };
+
+
 
   return (
     <div key={props.index} className = 'menu_item_container' >
+      <div>
       <h1>{props.menuItem.item_name}</h1>
         <input
             name="title"
@@ -66,7 +82,9 @@ const [itemDescription, setDescription] = useState("");
             value={titleInput}
             onChange={handleTitleInput}
             />
+      </div>
 
+      <div>
       <h3>{props.menuItem.item_price}</h3>
         <input
             name="price"
@@ -74,15 +92,21 @@ const [itemDescription, setDescription] = useState("");
             value={priceInput}
             onChange={handlePriceInput}
             />
+      </div>
 
-      <h3>{props.menuItem.item_image}</h3>
+      <div>
+      <img src={props.menuItem.item_image} alt={props.menuItem.item_image} />
+        <div>
         <input
             name="image"
             placeholder="enter image URL"
             value={imageURL}
             onChange={handleImageInput}
             />
+        </div>
+      </div>
 
+      <div>
       <h3>{props.menuItem.item_description}</h3>
         <input
             name="description"
@@ -90,9 +114,18 @@ const [itemDescription, setDescription] = useState("");
             value={itemDescription}
             onChange={handleDescriptionInput}
             />
+      </div>
 
       <button onClick={editMenuItem}>Edit</button>
-      {/* <button onClick={deleteMenuItem} >Delete</button> */}
+
+      <button
+          onClick={() => {
+            deleteMenuItem(props.menuItem.menu_item_id);
+          }}
+        >
+          Delete
+      </button>
+
     </div>
   );
 };

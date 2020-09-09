@@ -3,7 +3,10 @@ import axios from 'axios';
 const initialState = {
     user: { email: '', userId: 0 },
     business: { email:'', businessId: 0 },
-    menu: []
+    menu: [],
+    businessName: [],
+    cart: [],
+    cartTotal: []
 };
 
 const GET_USER = "GET_USER";

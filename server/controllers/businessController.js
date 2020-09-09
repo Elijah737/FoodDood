@@ -47,6 +47,13 @@ module.exports = {
             res.sendStatus(404)
         }
     },
+
+    getAllBusiness: async (req, res) => {
+        const db = req.app.get("db");
+        const allBusiness = await db.business.get_all_business();
+        res.status(200).send(allBusiness);
+    },
+
     editBusiness: async (req, res) => {
         const { business_name, cuisine, specialities, specials } = req.body;
         const { business_id } = req.params;
