@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -35,12 +35,5 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */
 
-.menu_item_container {
-  border: 3px solid black;
-}
-
-.businessHolder {
-  border: 3px solid black;
-}

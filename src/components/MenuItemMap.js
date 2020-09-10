@@ -13,17 +13,29 @@ const MenuItemMap = (props) => {
 function addToCart (){
     props.cart.push({ itemId : props.item.menu_item_id, itemName : props.item.item_name, itemPrice : props.item.item_price});
     props.cartTotal.push(props.item.item_price);
+    props.history.push("/cart");
 }
 
     return(
         <div onClick={() => {addToCart(props.item.menu_item_id, props.item.item_name, props.item.item_price);}} 
             key={props.index} 
-            className="businessHolder" >
+            className="menuHolder" >
+            <div>
+                <h1 className="menuItemText" >{props.item.item_name}</h1>
+            </div>
+            
+            <div>
+                <h1 className="menuItemText" >${props.item.item_price}</h1>
+            </div>
+            
+            <div>
+                <h1 className="menuItemText" >{props.item.item_description}</h1>
+            </div>         
 
-            <h1>{props.item.item_name}</h1>
-            <h1>{props.item.item_price}</h1>
-            <h1>{props.item.item_description}</h1>
-            <img src={props.item.item_image} alt={props.item.item_image} />
+            <div>
+            <img className="image" src={props.item.item_image} alt={props.item.item_image} />
+            </div>
+
         </div>
     )
 };

@@ -1,5 +1,6 @@
 import React from 'react';
 // import '../App.css';
+import "../CSS/menu.css";
 // import axios from 'axios';
 import MenuItemMap from './MenuItemMap';
 import { connect } from 'react-redux';
@@ -11,29 +12,36 @@ const BusinessInfo = (props) => {
     const sum = props.cartTotal.reduce((acc, val) => acc + val , 0);
 
     return (
-        <div>
-        <h1>{props.businessName[0]}</h1>
+        <div className="menu" >
 
-        <h1>Cart Sum: ${sum}</h1>
-        
-        {console.log("businessInfo Props",props)}
-        {console.log("businessInfo Props menu",props.menu[0])}
+          <div className="busNameContainer" >
+          <h1 className="businessName" >{props.businessName[0]}</h1>
+          </div>
 
-        <h1>MENU</h1>
+          <div className="sumContainer" >
+          <h1 className="cartSum" >Cart Total: ${sum}</h1>
+          </div>
 
-        <div className="menuItemMap">
-        {props.menu[0].map((item, index) => {
-          return(
-          <MenuItemMap
-            item={item}
-            index={index}
-          />
-          );
-          })}
+            {console.log("businessInfo Props",props)}
+            {console.log("businessInfo Props menu",props.menu[0])}
+
+          <div className="menuHeaderContainer" >
+          <h1 className="menuHeader" >MENU</h1>
+          </div>
+
+          <div className="menuItemMap">
+          {props.menu[0].map((item, index) => {
+            return(
+            <MenuItemMap
+              item={item}
+              index={index}
+            />
+            );
+            })}
+          </div>
+
+
       </div>
-
-
-        </div>
         );
     };
     

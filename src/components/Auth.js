@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import { getUser, getBusiness, getMenu } from '../redux/reducer';
+import "../CSS/auth.css"
 
 const Auth = (props) => {
   const [userBusinessToggle, setUserToggle] = useState(true);
@@ -94,14 +95,16 @@ const Auth = (props) => {
   };
 
     return (
-      <div>
+      <div className="auth" >
 
         <div className="title">
-        <h1 className="fooddood">FOODDOOD</h1>
+        <span className="food"><h1>FOOD</h1></span><span className="dood"><h1>DOOD</h1></span>
         </div>
 
-        <h3>{signInRegisterToggle ? "Login" : "Register"}</h3>
-        <div>
+
+        <div className="loginContainer">
+        <h3 className="inputTitle" >{signInRegisterToggle ? "Login" : "Register"}</h3>
+        
         <input
           name="email"
           placeholder="email"
@@ -116,8 +119,8 @@ const Auth = (props) => {
         />
         {signInRegisterToggle ? (
           <>
-          <button onClick={login}>Login</button>
-          <button
+          <button className="inputText" onClick={login}>Login</button>
+          <button className="inputText"
           onClick={() => {
             setRegisterToggle(!signInRegisterToggle);
           }}
@@ -127,8 +130,8 @@ const Auth = (props) => {
           </>
         ):(
           <>
-            <button onClick={register}>Register</button>
-            <button
+            <button className="inputText" onClick={register}>Register</button>
+            <button className="inputText"
               onClick={() => {
                 setRegisterToggle(!signInRegisterToggle);
               }}
@@ -141,8 +144,9 @@ const Auth = (props) => {
         </div>
 
 
-        <h3>{signInRegisterToggle ? "Business Login" : "Business Register"}</h3>
-        <div> 
+        <div className="loginContainer" > 
+        <h3 className="inputTitle" >{signInRegisterToggle ? "Business Login" : "Business Register"}</h3>
+        
         <input
           name="email"
           placeholder="email"
@@ -157,8 +161,8 @@ const Auth = (props) => {
         />
         {signInRegisterToggle ? (
           <>
-          <button onClick={businessLogin}>Login</button>
-          <button
+          <button className="inputText" onClick={businessLogin}>Login</button>
+          <button className="inputText"
           onClick={() => {
             setRegisterToggle(!signInRegisterToggle);
           }}
@@ -168,8 +172,8 @@ const Auth = (props) => {
           </>
         ):(
           <>
-            <button onClick={businessRegister}>Register</button>
-            <button
+            <button className="inputText" onClick={businessRegister}>Register</button>
+            <button className="inputText"
               onClick={() => {
                 setRegisterToggle(!signInRegisterToggle);
               }}

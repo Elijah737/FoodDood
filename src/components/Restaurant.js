@@ -127,7 +127,6 @@ const addToMenu = () => {
           onChange={handleNameInput}
           />
         
-
         <h3>{props.business.cuisine}</h3>
         <input
           name="cuisine"
@@ -154,7 +153,7 @@ const addToMenu = () => {
 
         <button onClick={editBusiness}>Submit Edit</button>
 
-      <h1>Add To Menu</h1>
+        <h1>Add To Menu</h1>
 
         <input
             name="title"

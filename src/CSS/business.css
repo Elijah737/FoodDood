@@ -1,0 +1,87 @@
+
+.busMapContainer {
+    height: 100vh;
+    background-color: yellow;
+}
+
+  .appName {
+    font-family: 'Exo', sans-serif;
+    font-size: 30px;
+    color: red;
+    display: flex;
+    margin-left: 5%;
+    /* flex-direction: row;
+    justify-content: center; */
+  }
+
+  .foodLogo{
+      margin-bottom: 20px;
+  }
+
+  .doodLogo{
+    margin-bottom: 20px;
+}
+
+.appFood{
+    animation-name: app-intro1;
+    animation-duration: 0.6s;
+  }
+  
+  @keyframes app-intro1 {
+    from {
+      transform: translate(0px, -400px);
+    }
+    to {
+      transform: translate(0px, 0px);
+    }
+  }
+  
+  .appDood{
+    animation-name: app-intro2;
+    animation-duration: 0.6s;
+  }
+  
+  @keyframes app-intro2 {
+    from {
+      transform: translate(1500px, 0px);
+    }
+    to {
+      transform: translate(0px, 0px);
+    }
+  }
+
+  .localRest {
+    font-family: 'Exo', sans-serif;
+    margin-left: 5%;
+  }
+
+  .menuMap {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+  }
+
+  .businessHolder {
+    /* border: 3px solid black; */
+    margin: 10px;
+    width: 40%;
+    background-color: rgb(255, 254, 206);
+    text-align: center;
+    border-radius: 7px;
+    box-shadow: 1px 1px 1px grey;
+  }
+
+  .businessHolder:hover {
+      background-color: rgb(255, 238, 179);
+  }
+
+  .businessHolder:hover > .busName {
+      font-size: 35px;
+  }
+
+  .busName {
+      font-family: 'Exo', sans-serif;
+      margin: 10px;
+      font-size: 33px;
+  }

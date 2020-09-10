@@ -5,6 +5,7 @@ import Business from './components/Business';
 import Restaurant from './components/Restaurant';
 import Checkout from './components/Checkout';
 import BusinessInfo from './components/BusinessInfo'
+import Cart from './components/Cart'
 
 export default (
     <Switch>
@@ -13,5 +14,6 @@ export default (
         <Route path='/restaurant' component={Restaurant} />
         <Route path='/checkout' component={Checkout} />
         <Route path='/businessinfo' component={BusinessInfo} />
+        <Route path='/cart' component={Cart} />
     </Switch>
 );

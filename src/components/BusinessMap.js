@@ -33,10 +33,10 @@ const BusinessMap = (props) => {
             key={props.index} 
             className="businessHolder" >
 
-            <h1>{props.business.business_name}</h1>
-            <h3>{props.business.cuisine}</h3>
-            <h3>{props.business.specialities}</h3>
-            <h3>{props.business.specials}</h3>
+            <h1 className="busName" >{props.business.business_name}</h1>
+            <h3>Cuisine: {props.business.cuisine}</h3>
+            <h3>Specialities: {props.business.specialities}</h3>
+            <h3>Specials: {props.business.specials}</h3>
         </div>
     )
 };

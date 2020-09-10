@@ -1,0 +1,71 @@
+.menu {
+    background-color: yellow;
+}
+
+.busNameContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.businessName {
+    color: red;
+    font-family: 'Exo', sans-serif;
+    font-size: 45px;
+    padding-top: 20px;
+    margin-top: 0;
+    animation-name: busName;
+    animation-duration: 0.5s;
+}
+  
+  @keyframes busName {
+    from {
+      transform: translate(0px, -200px);
+    }
+    to {
+      transform: translate(0px, 0px);
+    }
+  }
+
+.menuHeaderContainer {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
+
+.menuHeader {
+    margin: 10px;
+}
+
+.sumContainer {
+    background-color: white;
+    width: 30%;
+    border-bottom-right-radius: 50px;
+    border-top-right-radius: 50px;
+}
+
+.cartSum {
+    margin: 10px;
+}
+
+.menuItemMap {
+    /* background-color: white; */
+    margin: 20px
+}
+
+.menuHolder {
+    background-color: wheat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.image {
+    width: 30%
+}
+
+.menuItemText {
+    margin: 10px;
+}
+
