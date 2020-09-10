@@ -13,6 +13,7 @@
     font-size: 45px;
     padding-top: 20px;
     margin-top: 0;
+    margin-bottom: 10px;;
     animation-name: busName;
     animation-duration: 0.5s;
 }
@@ -29,11 +30,17 @@
 .menuHeaderContainer {
     display: flex;
     justify-content: center;
-    margin: 10px;
+    /* width: 35%; */
 }
 
 .menuHeader {
-    margin: 10px;
+    font-family: 'Exo', sans-serif;
+    display: flex;
+    justify-content: center;
+    margin: 0px;
+    background-color: white;
+    border-radius: 50px;
+    width: 35%;
 }
 
 .sumContainer {
@@ -41,11 +48,34 @@
     width: 30%;
     border-bottom-right-radius: 50px;
     border-top-right-radius: 50px;
+    animation-name: sumCon;
+    animation-duration: 0.5s;
 }
+
+@keyframes sumCon {
+    from {
+      transform: translate(-500px, 0px);
+    }
+    to {
+      transform: translate(0px, 0px);
+    }
+  }
 
 .cartSum {
     margin: 10px;
+    margin-left: 20px;
+    animation-name: sum;
+    animation-duration: 0.5s;
 }
+
+@keyframes sum {
+    from {
+      transform: translate(-1250px, 0px);
+    }
+    to {
+      transform: translate(0px, 0px);
+    }
+  }
 
 .menuItemMap {
     /* background-color: white; */
@@ -53,19 +83,26 @@
 }
 
 .menuHolder {
-    background-color: wheat;
+    background-color: rgb(255, 232, 131);
     display: flex;
     flex-direction: column;
     justify-content: center;
     margin-bottom: 10px;
     text-align: center;
+    border-radius: 10px
+}
+
+.menuHolder:hover {
+    background-color: rgb(255, 238, 160);
 }
 
 .image {
-    width: 30%
+    width: 40%;
+    border-radius: 10px;
 }
 
 .menuItemText {
+    font-family: 'Exo', sans-serif;
     margin: 10px;
 }
 

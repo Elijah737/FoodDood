@@ -10,6 +10,7 @@
     color: red;
     display: flex;
     margin-left: 5%;
+    text-decoration: underline;
     /* flex-direction: row;
     justify-content: center; */
   }
@@ -51,8 +52,19 @@
   }
 
   .localRest {
+    animation-name: local;
+    animation-duration: 0.6s;
     font-family: 'Exo', sans-serif;
     margin-left: 5%;
+  }
+
+  @keyframes local {
+    from {
+      transform: translate(-300px, 0px);
+    }
+    to {
+      transform: translate(0px, 0px);
+    }
   }
 
   .menuMap {
@@ -60,6 +72,18 @@
       flex-direction: row;
       flex-wrap: wrap;
       justify-content: center;
+      animation-name: mapIntro;
+        ;
+      animation-duration: 0.6s;
+  }
+
+  @keyframes mapIntro {
+    from {
+      transform: translate(0px, 1000px);
+    }
+    to {
+      transform: translate(0px, 0px);
+    }
   }
 
   .businessHolder {

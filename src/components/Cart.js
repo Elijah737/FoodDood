@@ -1,7 +1,8 @@
 import React from 'react';
 // import BusinessInfo from "./BusinessInfo";
 import { withRouter } from "react-router-dom";
-import '../App.css';
+// import '../App.css';
+import "../CSS/cart.css";
 import CartMap from "./CartMap";
 import axios from 'axios';
 import { connect } from 'react-redux';
@@ -15,10 +16,12 @@ console.log("cart cart props", props.cart)
 const sum = props.cartTotal.reduce((acc, val) => acc + val , 0);
 
     return(
-        <div>
-        <h1>CART</h1>
+        <div className="cartContainer" >
+            
+        <h1 className="cartLogo" >FOODOOD</h1>
+        <h1 className="cartLabel" >CART</h1>
 
-        <div className="menuItemMap">
+        <div className="cartItemMap">
         {props.cart.map((item, index) => {
           return(
           <CartMap
@@ -29,7 +32,7 @@ const sum = props.cartTotal.reduce((acc, val) => acc + val , 0);
           })}
       </div>
 
-      <h1>Cart Total: ${sum}</h1>
+      <h1 className="cartTotal" >Cart Total: ${sum}</h1>
 
 
       {/* <div>

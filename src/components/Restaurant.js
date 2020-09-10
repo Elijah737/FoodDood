@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { getBusiness, getMenu } from '../redux/reducer';
-import '../App.css';
+// import '../App.css';
+import "../CSS/restaurant.css"
 import Menu from "./Menu";
 import axios from 'axios';
 
@@ -104,7 +105,7 @@ const addToMenu = () => {
   business_id: props.business.business_id
   })
   .then((res) => {
-    setMenu(res.data); 
+    setMenu(res.data);
   })
   .catch((err) => {
     alert("error in adding to menu");
@@ -117,9 +118,9 @@ const addToMenu = () => {
   // console.log( "props getMenu pass in business ID", props.getMenu(props.business.business_id))
 
     return (
-      <>
+      <div className="businessInfoPage" >
     
-        <h1>{props.business.business_name}</h1>
+        <h1 className="busInfoBusName">{props.business.business_name}</h1>
         <input
           name="businessName"
           placeholder="enter business name"
@@ -127,7 +128,7 @@ const addToMenu = () => {
           onChange={handleNameInput}
           />
         
-        <h3>{props.business.cuisine}</h3>
+        <h3 className="busInfo" >{props.business.cuisine}</h3>
         <input
           name="cuisine"
           placeholder="enter cuisine type"
@@ -135,7 +136,7 @@ const addToMenu = () => {
           onChange={handleCuisineInput}
           />
 
-        <h3>{props.business.specialities}</h3>
+        <h3 className="busInfo" >{props.business.specialities}</h3>
         <input
           name="specialities"
           placeholder="specialities"
@@ -143,7 +144,7 @@ const addToMenu = () => {
           onChange={handleSpecialitiesInput}
           />
 
-        <h3>{props.business.specials}</h3>
+        <h3 className="busInfo" >{props.business.specials}</h3>
         <input
           name="specials"
           placeholder="specials"
@@ -151,9 +152,9 @@ const addToMenu = () => {
           onChange={handleSpecialsInput}
         />
 
-        <button onClick={editBusiness}>Submit Edit</button>
+        <button className="busEditBut" onClick={editBusiness}>Submit Edit</button>
 
-        <h1>Add To Menu</h1>
+        <h1 className="busAddToMenu" >Add To Menu</h1>
 
         <input
             name="title"
@@ -165,6 +166,7 @@ const addToMenu = () => {
         <input
             name="price"
             placeholder="enter item price"
+            // type="number"
             value={itemPriceInput}
             onChange={handlePriceInput}
             />
@@ -183,11 +185,13 @@ const addToMenu = () => {
             onChange={handleDescriptionInput}
             />
 
-      <button onClick={addToMenu}>Add to Menu</button>
+      <button className="menuEditBut" onClick={addToMenu}>Add to Menu</button>
 
-      <h3>Mapped Menu Items</h3>
+      <div className="menuMapHead" >
+      <h1 className="menuMapHead" >Menu Items</h1>
+      </div>
 
-      <div className="menuMap">
+      <div className="menuMapMenu">
         {menu.map((menuItem, index) => {
           return(
           <Menu
@@ -200,7 +204,7 @@ const addToMenu = () => {
       </div>
 
 
-      </>
+      </div>
     );
   
 };

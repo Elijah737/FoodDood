@@ -63,7 +63,7 @@ const [itemDescription, setDescription] = useState("");
               business_id: props.business.business_id
             })
             .then((res) => {
-              props.setMenu(res.data); 
+              props.setMenu(res.data);
             })
             .catch((err) => {
               console.log(err);
@@ -75,7 +75,7 @@ const [itemDescription, setDescription] = useState("");
   return (
     <div key={props.index} className = 'menu_item_container' >
       <div>
-      <h1>{props.menuItem.item_name}</h1>
+      <h1 className="menuMapItemName" >{props.menuItem.item_name}</h1>
         <input
             name="title"
             placeholder="enter item name"
@@ -85,7 +85,7 @@ const [itemDescription, setDescription] = useState("");
       </div>
 
       <div>
-      <h3>{props.menuItem.item_price}</h3>
+      <h3 className="menuMapItemPrice" >${props.menuItem.item_price}</h3>
         <input
             name="price"
             placeholder="enter item price"
@@ -95,7 +95,7 @@ const [itemDescription, setDescription] = useState("");
       </div>
 
       <div>
-      <img src={props.menuItem.item_image} alt={props.menuItem.item_image} />
+      <img className="menuMapItemImage" src={props.menuItem.item_image} alt={props.menuItem.item_image} />
         <div>
         <input
             name="image"
@@ -107,24 +107,26 @@ const [itemDescription, setDescription] = useState("");
       </div>
 
       <div>
-      <h3>{props.menuItem.item_description}</h3>
+      <h3 className="menuMapItemDesc" >{props.menuItem.item_description}</h3>
         <input
             name="description"
             placeholder="enter item description"
-            value={itemDescription}
+            value={itemDescription} 
             onChange={handleDescriptionInput}
             />
       </div>
 
-      <button onClick={editMenuItem}>Edit</button>
+      <div className="buttCont" >
+      <button className="menuEditBut" onClick={editMenuItem}>Edit</button>
 
-      <button
+      <button className="menuEditBut"
           onClick={() => {
             deleteMenuItem(props.menuItem.menu_item_id);
           }}
         >
           Delete
       </button>
+      </div>
 
     </div>
   );

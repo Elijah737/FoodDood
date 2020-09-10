@@ -11,8 +11,8 @@ const CartMap = (props) => {
 
     return(
         <div key={props.index} className="cartItem"  >
-            <h1>{props.item.itemName}</h1>
-            <h1>{props.item.itemPrice}</h1>
+            <h1 className="itemName" >{ props.item.itemName}</h1>
+            <h1 className="itemPrice" >${props.item.itemPrice}</h1>
             <textarea name="itemRequest" placeholder="order requests"></textarea>
         </div>
     )

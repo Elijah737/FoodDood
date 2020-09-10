@@ -20,16 +20,16 @@ function addToCart (){
         <div onClick={() => {addToCart(props.item.menu_item_id, props.item.item_name, props.item.item_price);}} 
             key={props.index} 
             className="menuHolder" >
-            <div>
+            <div className="menuItemName" >
                 <h1 className="menuItemText" >{props.item.item_name}</h1>
             </div>
             
             <div>
-                <h1 className="menuItemText" >${props.item.item_price}</h1>
+                <h2 className="menuItemText" >${props.item.item_price}</h2>
             </div>
             
             <div>
-                <h1 className="menuItemText" >{props.item.item_description}</h1>
+                <h2 className="menuItemText" >{props.item.item_description}</h2>
             </div>         
 
             <div>
