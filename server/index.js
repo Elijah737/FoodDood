@@ -10,8 +10,8 @@ const menuCtrl = require("./controllers/menuController");
 const cartCtrl = require("./controllers/cartController");
 const app = express();
 
-
 app.use(express.json());
+app.use( express.static( `${__dirname}/../build` ) );
 
 app.use(
     session({

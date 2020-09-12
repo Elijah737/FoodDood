@@ -85,9 +85,12 @@ const editBusiness = () => {
       specials: specialsInput
     })
     .then(data => {
-        this.setState({data: data}); 
-      // props.getBusiness();
-      // props.history.push("/restaurant");
+        console.log( "edit business data", data)
+        // this.setState({data: data}); 
+        setName(data[0].business_name);
+        setCuisine(data[0].cuisine);
+        setSpecialities(data[0].specialities);
+        setSpecials(data[0].specials);
     })
     .catch((err) => {
       alert("error in updating information");

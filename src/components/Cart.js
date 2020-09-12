@@ -12,6 +12,9 @@ import { getMenu } from '../redux/reducer';
 const Cart = (props) => {
 console.log("cart props", props)
 console.log("cart cart props", props.cart)
+console.log("index", props.index)
+console.log("cart index", props.cart.index)
+
 
 const sum = props.cartTotal.reduce((acc, val) => acc + val , 0);
 
