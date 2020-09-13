@@ -6,10 +6,10 @@ import '../App.css';
 
 const Menu = (props) => {
 
-const [titleInput, setTitle] = useState("");
-const [priceInput, setPrice] = useState("");
-const [imageURL, setImage] = useState("");
-const [itemDescription, setDescription] = useState("");
+const [titleInput, setTitle] = useState(`${props.menuItem.item_name}`);
+const [priceInput, setPrice] = useState(`${props.menuItem.item_price}`);
+const [imageURL, setImage] = useState(`${props.menuItem.item_image}`);
+const [itemDescription, setDescription] = useState(`${props.menuItem.item_description}`);
 
 
     const handleTitleInput = (event) => {
@@ -75,7 +75,7 @@ const [itemDescription, setDescription] = useState("");
   return (
     <div key={props.index} className = 'menu_item_container' >
       <div>
-      <h1 className="menuMapItemName" >{props.menuItem.item_name}</h1>
+      <h1 className="menuMapItemName" >{titleInput}</h1>
         <input
             name="title"
             placeholder="enter item name"
@@ -85,7 +85,7 @@ const [itemDescription, setDescription] = useState("");
       </div>
 
       <div>
-      <h3 className="menuMapItemPrice" >${props.menuItem.item_price}</h3>
+      <h3 className="menuMapItemPrice" >${priceInput}</h3>
         <input
             name="price"
             placeholder="enter item price"
@@ -95,7 +95,7 @@ const [itemDescription, setDescription] = useState("");
       </div>
 
       <div>
-      <img className="menuMapItemImage" src={props.menuItem.item_image} alt={props.menuItem.item_image} />
+      <img className="menuMapItemImage" src={imageURL} alt={props.menuItem.item_image} />
         <div>
         <input
             name="image"
@@ -107,7 +107,7 @@ const [itemDescription, setDescription] = useState("");
       </div>
 
       <div>
-      <h3 className="menuMapItemDesc" >{props.menuItem.item_description}</h3>
+      <h3 className="menuMapItemDesc" >{itemDescription}</h3>
         <input
             name="description"
             placeholder="enter item description"

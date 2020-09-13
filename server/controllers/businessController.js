@@ -64,7 +64,7 @@ module.exports = {
             cuisine,
             specialities,
             specials,
-            business_id: business_id
+            business_id: +business_id
         });
         res.status(200).send(business);
     },

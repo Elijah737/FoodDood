@@ -9,10 +9,10 @@ import axios from 'axios';
 const Restaurant = (props) => {
 
 const [menu, setMenu] = useState([]);
-const [nameInput, setName] = useState("");
-const [cuisineInput, setCuisine] = useState("");
-const [specialitiesInput, setSpecialities] = useState("");
-const [specialsInput, setSpecials] = useState("");
+const [nameInput, setName] = useState(`${props.business.business_name}`);
+const [cuisineInput, setCuisine] = useState(`${props.business.cuisine}`);
+const [specialitiesInput, setSpecialities] = useState(`${props.business.specialities}`);
+const [specialsInput, setSpecials] = useState(`${props.business.specials}`);
 
 const [itemNameInput, setItemName] = useState("");
 const [itemPriceInput, setItemPrice] = useState("");
@@ -76,6 +76,16 @@ useEffect(() => {
 }, [])
 
 
+  // axios
+  // .get(...)
+  // .then((response) => {
+  //   return axios.get(...); // using response.data
+  // })
+  // .then((response) => {
+  //   console.log('Response', response);
+  // });
+
+
 const editBusiness = () => {
   axios
     .put(`/business/business/${props.business.business_id}`, {
@@ -84,13 +94,15 @@ const editBusiness = () => {
       specialities: specialitiesInput,
       specials: specialsInput
     })
-    .then(data => {
-        console.log( "edit business data", data)
-        // this.setState({data: data}); 
-        setName(data[0].business_name);
-        setCuisine(data[0].cuisine);
-        setSpecialities(data[0].specialities);
-        setSpecials(data[0].specials);
+    .then((res) => {
+        console.log( "edit business data", res);
+            
+        // this.setState({data: data});
+
+        setName(res.data[0].business_name);
+        setCuisine(res.data[0].cuisine);
+        setSpecialities(res.data[0].specialities);
+        setSpecials(res.data[0].specials);
     })
     .catch((err) => {
       alert("error in updating information");
@@ -123,7 +135,7 @@ const addToMenu = () => {
     return (
       <div className="businessInfoPage" >
     
-        <h1 className="busInfoBusName">{props.business.business_name}</h1>
+        <h1 className="busInfoBusName">{nameInput}</h1>
         <input
           name="businessName"
           placeholder="enter business name"
@@ -131,7 +143,7 @@ const addToMenu = () => {
           onChange={handleNameInput}
           />
         
-        <h3 className="busInfo" >{props.business.cuisine}</h3>
+        <h3 className="busInfo" >{cuisineInput}</h3>
         <input
           name="cuisine"
           placeholder="enter cuisine type"
@@ -139,7 +151,7 @@ const addToMenu = () => {
           onChange={handleCuisineInput}
           />
 
-        <h3 className="busInfo" >{props.business.specialities}</h3>
+        <h3 className="busInfo" >{specialitiesInput}</h3>
         <input
           name="specialities"
           placeholder="specialities"
@@ -147,7 +159,7 @@ const addToMenu = () => {
           onChange={handleSpecialitiesInput}
           />
 
-        <h3 className="busInfo" >{props.business.specials}</h3>
+        <h3 className="busInfo" >{specialsInput}</h3>
         <input
           name="specials"
           placeholder="specials"
