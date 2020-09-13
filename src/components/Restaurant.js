@@ -73,7 +73,7 @@ useEffect(() => {
     .catch((err) => {
       console.log(err);
     });
-}, [])
+}, [props.business.business_id])
 
 
   // axios
