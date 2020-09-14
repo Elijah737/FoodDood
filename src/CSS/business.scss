@@ -1,0 +1,123 @@
+@import "\variables";
+
+$businessTitle: 33px;
+
+@keyframes app-intro1 {
+	from {
+		transform: translate(0px, -400px);
+	}
+	to {
+		transform: translate(0px, 0px);
+	}
+}
+@keyframes app-intro2 {
+	from {
+		transform: translate(1500px, 0px);
+	}
+	to {
+		transform: translate(0px, 0px);
+	}
+}
+@keyframes local {
+	from {
+		transform: translate(-300px, 0px);
+	}
+	to {
+		transform: translate(0px, 0px);
+	}
+}
+@keyframes mapIntro {
+	from {
+		transform: translate(0px, 1000px);
+	}
+	to {
+		transform: translate(0px, 0px);
+	}
+}
+
+.busMapContainer {
+	height: 100vh;
+	background-color: $app-bg;
+}
+
+.appName {
+	font-family: 'Exo', sans-serif;
+	font-size: 30px;
+	color: red;
+	display: flex;
+	margin-left: 5%;
+	text-decoration: underline;
+}
+
+.foodLogo {
+	margin-bottom: 20px;
+}
+
+.doodLogo {
+	margin-bottom: 20px;
+}
+.appFood {
+	animation-name: app-intro1;
+	animation-duration: 0.6s;
+}
+.appDood {
+	animation-name: app-intro2;
+	animation-duration: 0.6s;
+}
+.localRest {
+	animation-name: local;
+	animation-duration: 0.6s;
+	font-family: 'Exo', sans-serif;
+	margin-left: 5%;
+}
+.menuMap {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	animation-name: mapIntro;
+	animation-duration: 0.6s;
+}
+.businessHolder {
+	margin: 10px;
+	width: 40%;
+	background-color: rgb(255, 254, 206);
+	text-align: center;
+	border-radius: 7px;
+	box-shadow: 1px 1px 1px grey;
+	&:hover {
+		background-color: rgb(255, 238, 179);
+		>.busName {
+			font-size: $businessTitle;
+		}
+	}
+}
+.busName {
+	font-family: 'Exo', sans-serif;
+	margin: 10px;
+	font-size: $businessTitle - 2;
+}
+
+@media (max-width: 500px){
+
+	.menuMap {
+		flex-direction: column;
+		align-items: center;;
+	}
+
+	.businessHolder {
+		width: 70%;
+		font-size: 15px;
+		&:hover {
+			>.busName {
+				font-size: $businessTitle - 7;
+			}
+		}
+
+		.busName{
+			font-size: $businessTitle - 10;
+		}
+	}
+
+
+}
